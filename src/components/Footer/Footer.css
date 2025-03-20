@@ -1,0 +1,38 @@
+.footer{
+    background-color: #2A2A2A;
+    padding-top: 40px;
+}
+
+.foot_container{
+    max-width: 1240px;
+    margin: auto;
+}
+
+.listsParent{
+    display: flex;
+    justify-content: space-evenly;
+    padding: 20px 0;
+    border-bottom: 1px solid white;
+
+    .list a, h4{
+        color: white;
+        font-size: 16px;
+        transition: .3s;
+    }
+
+    a:hover{
+        color: gray;
+    }
+    
+    h4{
+        font-size: 20px;
+    }
+    
+    li{
+        padding: 8px 0;
+    }
+}
+
+.lastText{
+    text-align: center;
+}

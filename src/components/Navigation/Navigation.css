@@ -1,0 +1,39 @@
+.nav{
+    background-color: white;
+    border-bottom: 2px dashed lightgray; 
+    position: sticky;
+    top: 0;
+    z-index: 5;
+}
+    
+.nav_container{
+    max-width: 1240px;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navMenu{
+    width: 80%;
+    display: flex;
+    justify-content: center;
+    gap: 40px;
+}
+
+.navMenu a{
+    font-size: 18px;
+    color: black;
+    padding: 6px 12px;
+    font-weight: 600;
+    transition: .3s linear;
+
+    &:hover{
+        background-color: lightgray;
+    }
+}
+
+.cart{
+    display: flex;
+    gap: 4px;
+}
