@@ -14,7 +14,7 @@ const Navigation = () => {
             <div className="navMenu">
               <NavLink to='/'> Home </NavLink>
               <NavLink to='/products'> Products </NavLink>
-              <NavLink to='/cart' className='cart'> {`Cart`} {<IoMdCart/>} </NavLink>
+              <NavLink to='/cart' className='cart'> {`Cart`} {<IoMdCart/>}</NavLink>
             </div>
         </div>
     </nav>

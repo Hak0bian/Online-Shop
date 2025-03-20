@@ -4,7 +4,7 @@ import "./Prod.css"
 
 const Prod = ({prod}) => {
   return (
-    <div key={prod.id} className='productDiv'>
+    <div className='productDiv'>
       <div className="imageDiv">
         <img src={prod.thumbnail} />
       </div>
@@ -20,9 +20,6 @@ const Prod = ({prod}) => {
               <span className="gold">{<AiFillStar/>}</span>
               <span>{prod.rating}</span>
             </div>
-        </div>
-        <div className="btnDiv">
-          <button className="btn">Add to Cart</button>
         </div>
       </div>
     </div>

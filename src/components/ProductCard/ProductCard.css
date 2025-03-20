@@ -1,0 +1,13 @@
+.mainProductCard{
+    width: 295px;
+    height: 420px;
+    overflow: hidden;
+    display: inline-block;
+    border: 1px solid gray;
+    box-shadow: 0 0 8px gray;
+    transition: .3s;
+    
+    &:hover{
+        box-shadow: 0 0 10px black;
+    }
+}

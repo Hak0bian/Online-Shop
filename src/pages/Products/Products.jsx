@@ -1,17 +1,11 @@
-import React from 'react'
-import Prod from '../../components/Prod/Prod'
-import { NavLink } from 'react-router-dom'
+import { ProductCard } from "../../components/index"
 import "./Products.css"
 
-const Products = ({data}) => {
+const Products = ({data, addToCart}) => {    
     return (
         <section className='prod_container'>
             {data.map(prod => (
-                <div>
-                    <NavLink to={`product/${prod.id}`}>
-                        <Prod prod={prod}/>
-                    </NavLink>
-                </div>
+                <ProductCard key={prod.id}  prod={prod} addToCart={addToCart} />
             ))}
         </section>
     )

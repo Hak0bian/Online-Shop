@@ -17,13 +17,17 @@
     .imageDiv{
         display: flex;
         flex-direction: column;
-        justify-content: center;
+        justify-content: space-around;
         border: 2px solid gray;
         border-right: none;
     }
 
     .productImg{
         width: 600px;
+    }
+
+    .btnDiv{
+        background-color: white;
     }
 }
 

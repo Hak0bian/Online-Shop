@@ -1,65 +1,32 @@
 .productDiv{
-    width: 295px;
-    height: 420px;
-    overflow: hidden;
-    display: inline-block;
-    border: 1px solid gray;
-    box-shadow: 0 0 8px gray;
-    transition: .3s;
-    
-    &:hover{
-        box-shadow: 0 0 10px black;
-    }
-}
-
-.imageDiv{
-    text-align: center;
-}
-
-.title{
-    color: black;
-}
-
-.infoDiv{
-    padding: 20px;
-    background-color: #E5E5E5;
-
-    .div{
-        display: flex;
-        gap: 20px;
-        align-items: center;
-        color: #333;
-    }
-
-    .ratingDiv, 
-    .priceDiv{
-        display: flex;
-        gap: 4px;
-        padding: 4px 0;
-    }
-
-    .gold{
-        color: orange;
-    }
-}
-
-.btnDiv{
-    text-align: center;
-    padding: 4px 0;
-}
-
-.btn{
-    border: 1px solid black;
-    background-color: white;
-    color: black;
-    font-size: 16px;
-    padding: 8px 16px;
-    cursor: pointer;
-    transition: .3s linear;
-
-    &:hover{
-        background-color: black;
-        color: white;
+    .imageDiv{
+        text-align: center;
     }
     
+    .title{
+        color: black;
+    }
+    
+    .infoDiv{
+        padding: 20px 10px 0;
+        background-color: #E5E5E5;
+    
+        .div{
+            display: flex;
+            gap: 20px;
+            align-items: center;
+            color: #333;
+        }
+    
+        .ratingDiv, 
+        .priceDiv{
+            display: flex;
+            gap: 4px;
+            padding: 4px 0;
+        }
+    
+        .gold{
+            color: orange;
+        }
+    }
 }

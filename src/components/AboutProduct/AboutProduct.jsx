@@ -1,11 +1,13 @@
+import Button from "../Button/Button"
 import "./AboutProduct.css"
 
-const AboutProduct = ({product}) => {
+const AboutProduct = ({product, addToCart}) => {
   return (
     <section className='product_container'>
       <div className='productCard' key={product.id}>
           <div className="imageDiv">
               <img src={product.thumbnail} className="productImg"/>
+              <Button prod={product} addToCart={addToCart}/>
           </div>
 
           <div className="productInfo">

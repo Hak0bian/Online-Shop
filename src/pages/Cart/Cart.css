@@ -1,3 +1,66 @@
 .cartSection{
-    height: 100vh;
+    max-width: 1240px;
+    min-height: 100vh;
+    margin: auto;
+    padding: 40px 0;
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    
+    h2{
+        font-size: 32px;
+    }
+    
+    p{
+        padding: 4px 0;
+    }
+}
+
+.addedProduct{
+    width: 295px;
+    height: 410px;
+    overflow: hidden;
+    border: 1px solid gray;
+    box-shadow: 0 0 8px gray;
+    cursor: pointer;
+    
+    &:hover{
+        box-shadow: 0 0 10px black;
+    }
+
+    .infoDiv{
+        padding: 16px 16px 30px;
+        background-color: #E5E5E5;
+    }
+}
+
+.countDiv{
+    display: flex;
+    align-items: center;
+    gap: 12px;
+
+    span{
+        font-size: 20px;
+    }
+
+    button{
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+        background-color: white;
+        border: 1px solid gray;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+    }
+
+    .buyBtn{
+        width: 80px;
+        font-size: 16px;
+        margin-left: 10px;
+    }
 }

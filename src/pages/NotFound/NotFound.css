@@ -1,0 +1,9 @@
+.errorDiv{
+    max-width: 1240px;
+    margin: auto;
+    text-align: center;
+
+    .btnDiv{
+        background-color: white;
+    }
+}
