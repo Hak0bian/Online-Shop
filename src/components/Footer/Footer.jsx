@@ -1,12 +1,12 @@
 import whiteLogo from "../../assets/white-logo.png"
-import "./Footer.css"
+import st from "./Footer.module.css"
 
 const Footer = () => {
   return (
-    <footer className="footer">
-        <div className="foot_container">
-            <div className="listsParent">
-                <div className="list1 list">
+    <footer className={st.footer}>
+        <div className={st.foot_container}>
+            <div className={st.listsParent}>
+                <div className={`${st.list1} ${st.list}`}>
                     <ul>
                         <li>
                             <img src={whiteLogo}/>
@@ -16,7 +16,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                <div className="list2 list">
+                <div className={`${st.list2} ${st.list}`}>
                     <ul>
                         <li><h4>Shopping Categories</h4></li>
                         <li><a href="#">Men’s Shopping</a></li>
@@ -25,7 +25,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                <div className="list3 list">
+                <div className={`${st.list3} ${st.list}`}>
                     <ul>
                         <li><h4>Useful Links</h4></li>
                         <li><a href="#">Homepage</a></li>
@@ -34,7 +34,7 @@ const Footer = () => {
                     </ul>
                 </div>
 
-                <div className="list4 list">
+                <div className={`${st.list4} ${st.list}`}>
                     <ul>
                         <li><h4>Help Information</h4></li>
                         <li><a href="#">Help</a></li>
@@ -44,7 +44,7 @@ const Footer = () => {
                 </div>
             </div>
 
-            <div className="lastText">
+            <div className={st.lastText}>
                 <p className="text">Copyright © 2025 HexaShop. All Rights Reserved. Created by Hak0bian</p>
             </div>
 

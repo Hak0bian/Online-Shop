@@ -14,6 +14,10 @@
     align-items: center;
 }
 
+.logo{
+    background-color: white !important;
+}
+
 .navMenu{
     width: 80%;
     display: flex;
@@ -36,4 +40,17 @@
 .cart{
     display: flex;
     gap: 4px;
+    position: relative;
+}
+
+.cartIcon{
+    margin-right: 8px;
+}
+
+.cartCount{
+    position: absolute;
+    top: 2px;
+    right: 2px;
+    font-size: 14px;
+    color: red;
 }

@@ -1,23 +1,23 @@
 import { FiDollarSign } from "react-icons/fi";
 import { AiFillStar } from "react-icons/ai";
-import "./Prod.css"
+import st from "./Prod.module.css"
 
 const Prod = ({prod}) => {
   return (
-    <div className='productDiv'>
-      <div className="imageDiv">
+    <div className={st.productDiv}>
+      <div className={st.imageDiv}>
         <img src={prod.thumbnail} />
       </div>
 
-      <div className="infoDiv">
-        <h3 className="title">{prod.title}</h3>
-        <div className="div">
-            <div className="priceDiv">
-              <span className="gold">{<FiDollarSign/>}</span>
+      <div className={st.infoDiv}>
+        <h3 className={st.title}>{prod.title}</h3>
+        <div className={st.div}>
+            <div className={st.priceDiv}>
+              <span className={st.gold}>{<FiDollarSign/>}</span>
               <span>{prod.price}</span>
             </div>
-            <div className="ratingDiv">
-              <span className="gold">{<AiFillStar/>}</span>
+            <div className={st.ratingDiv}>
+              <span className={st.gold}>{<AiFillStar/>}</span>
               <span>{prod.rating}</span>
             </div>
         </div>

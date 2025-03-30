@@ -35,4 +35,7 @@
 
 .lastText{
     text-align: center;
+    font-size: 18px;
+    color: white;
+    padding: 40px 0;
 }

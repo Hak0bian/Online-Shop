@@ -1,13 +1,21 @@
-import { useParams } from "react-router-dom"
-import AboutProduct from "../../components/AboutProduct/AboutProduct";
+import { useParams } from "react-router-dom";
+import { useEffect, useState } from "react";
+import { AboutProduct } from "../../components";
+import axios from "axios";
 
-const Product = ({data, addToCart}) => {
-    const {id} = useParams();
-    const product = data.find((obj) => obj.id === +id)
+const Product = ({ addToCart }) => {
+    const { id } = useParams();
+    const [product, setProduct] = useState(null);
 
-    return (
-        <AboutProduct product={product} addToCart={addToCart}/>   
-    )
-}
+    useEffect(() => {
+        axios.get(`https://dummyjson.com/products/${id}`)
+            .then((res) => setProduct(res.data))
+            .catch((err) => console.error(err));
+    }, [id]);
 
-export default Product
+    if (!product) return <p>Loading...</p>;
+
+    return <AboutProduct product={product} addToCart={addToCart} />;
+};
+
+export default Product;

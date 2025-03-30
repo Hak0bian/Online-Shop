@@ -1,9 +1,14 @@
 .prod_container{
     max-width: 1240px;
+    min-height: 100vh;
     margin: auto;
     padding: 20px 0;
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
     gap: 20px;
+
+    p{
+        font-size: 28px;
+    }
 }

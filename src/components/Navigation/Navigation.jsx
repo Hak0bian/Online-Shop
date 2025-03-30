@@ -1,20 +1,25 @@
 import logo from "../../assets/logo.png"
 import { NavLink } from 'react-router-dom'
 import { IoMdCart } from "react-icons/io";
-import "./Navigation.css"
+import st from "./Navigation.module.css"
 
-const Navigation = () => {
+const Navigation = ({cart}) => {
+  const cartCount = cart.reduce((acc, item) => acc + item.count, 0);
+
   return (
-    <nav className="nav">
-        <div className="nav_container">
-            <div>
-                <img src={logo}/>
-            </div>
+    <nav className={st.nav}>
+        <div className={st.nav_container}>
+          <NavLink to="/" className={st.logo}>
+              <img src={logo}/>
+          </NavLink>
 
-            <div className="navMenu">
+            <div className={st.navMenu}>
               <NavLink to='/'> Home </NavLink>
               <NavLink to='/products'> Products </NavLink>
-              <NavLink to='/cart' className='cart'> {`Cart`} {<IoMdCart/>}</NavLink>
+              <NavLink to='/cart' className={st.cart}> 
+                {`Cart`} {<IoMdCart className={st.cartIcon}/>}
+                <span className={st.cartCount}>{cartCount}</span>
+              </NavLink>
             </div>
         </div>
     </nav>
