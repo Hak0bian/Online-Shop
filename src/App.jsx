@@ -1,14 +1,15 @@
 import { useState, useRef } from 'react'
 import { Routes, Route } from "react-router-dom"
-import { Home, Products, Product, Cart, NotFound } from "./pages/index"
+import { Home, Products, Product, Cart, Buy, NotFound } from "./pages/index"
 import { Layout } from "./components/index"
 import './App.css'
 
 function App() {
   const [cart, setCart] = useState([]);
+  const [toBuy, setToBuy] = useState([])
   const cartRef = useRef(null)
   
-  const addToCart = (product) => {
+  function addToCart(product) {
     setCart((prevCart) => {
       const existingProduct = prevCart.find((item) => item.id === product.id);
 
@@ -23,7 +24,8 @@ function App() {
         return cartRef.current;
 
       }else {
-        cartRef.current = [...prevCart, {
+        cartRef.current = [
+          ...prevCart, {
           ...product, 
           count: 1 
         }];
@@ -34,6 +36,9 @@ function App() {
     });
   };
 
+  console.log("Cart", cart);
+  console.log("toBuy", toBuy);
+  
 
   return (
     <section>
@@ -43,7 +48,8 @@ function App() {
             <Route path='/products' element={<Products addToCart={addToCart} />} />
             <Route path='/products/:category' element={<Products addToCart={addToCart} />} />
             <Route path='/products/:category/:id' element={<Product addToCart={addToCart} />} />
-            <Route path='/cart' element={<Cart cart={cart} setCart={setCart}/>} />
+            <Route path='/cart' element={<Cart cart={cart} setCart={setCart} setToBuy={setToBuy}/>} />
+            <Route path='/cart/buy' element={<Buy toBuy={toBuy} />} />
             <Route path='*' element={<NotFound/>}/>
           </Route>
         </Routes>

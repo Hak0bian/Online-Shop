@@ -1,5 +1,6 @@
 .product_container{
     max-width: 1240px;
+    min-height: 100vh;
     margin: auto;
     padding: 40px 0;
     display: flex;

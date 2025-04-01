@@ -1,0 +1,48 @@
+.formDiv{
+    width: 500px;
+    height: 480px;
+    border: 2px solid gray;
+    padding: 20px;
+}
+
+.prodInfo p{
+    padding-bottom: 4px;
+}
+
+.inp, 
+.select{
+    width: 100%;
+    height: 40px;
+    margin: 4px 0;
+    padding: 0 8px;
+    font-size: 16px;
+    outline: none;
+}
+::placeholder{
+    font-size: 16px;
+}
+
+.error{
+    font-size: 14px;
+    color: red;
+}
+
+.select{
+    width: 50%;
+}
+
+.sendBtn{
+    border: 1px solid black;
+    background-color: white;
+    color: black;
+    font-size: 16px;
+    padding: 8px 20px;
+    margin: 4px 0;
+    cursor: pointer;
+    transition: .3s linear;
+
+    &:hover{
+        background-color: black;
+        color: white;
+    }
+}

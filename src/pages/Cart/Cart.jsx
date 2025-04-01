@@ -1,7 +1,8 @@
 import { useEffect } from "react";
+import { ProductInCart } from "../../components";
 import st from "./Cart.module.css"
 
-const Cart = ({cart, setCart}) => {
+const Cart = ({cart, setCart, setToBuy}) => {
 
   useEffect(() => {
     const storedCart = JSON.parse(localStorage.getItem('cart'));
@@ -40,34 +41,40 @@ const Cart = ({cart, setCart}) => {
       )
     );
   };
+  
+  const handleBuy = (item) => {
+    setToBuy([{
+      id: item.id,
+      title: item.title,
+      count: item.count,
+      price: (item.price * item.count).toFixed(2)
+    }]);
+  };
 
+  const deleteProduct = (id) => {
+    const newCart = cart.filter(prod => id !== prod.id)
+    setCart(newCart)
+    localStorage.setItem('cart', JSON.stringify(newCart));
+  }
 
+  
   return (
     <section className={st.cartSection}>
         {
-        cart.length === 0 ? (
-          <h2>Cart is empty</h2>
-        ) : (
-          cart.map((item) => (
-            <div key={item.id} className={st.addedProduct}>
-              <img src={item.thumbnail} />
-
-              <div className={st.infoDiv}>
-                <div>
-                  <h3>{item.title}</h3>
-                  <p>$ {(item.price * item.count).toFixed(2)}</p>
-                </div>
-
-                <div className={st.countDiv}>
-                  <button onClick={() => minus(item.id)}>-</button>
-                  <span>{item.count}</span>
-                  <button onClick={() => plus(item.id)}>+</button>
-                  <button className={st.buyBtn}>Buy</button>
-                </div>
-              </div>
-            </div>
-          ))
-        )
+          cart.length === 0 ? (
+            <h2>Cart is empty</h2>
+          ) : (
+            cart.map((item) => (
+              <ProductInCart 
+                key={item.id}
+                item={item}
+                plus={plus}  
+                minus={minus}
+                handleBuy={handleBuy}
+                deleteProduct={deleteProduct}
+              />
+            ))
+          )
         }
     </section>
   );

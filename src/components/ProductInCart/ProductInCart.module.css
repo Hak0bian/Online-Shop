@@ -1,0 +1,71 @@
+.addedProduct{
+    width: 295px;
+    height: 428px;
+    overflow: hidden;
+    border: 1px solid gray;
+    box-shadow: 0 0 8px gray;
+    transition: .3s;
+    position: relative;
+    
+    &:hover{
+        box-shadow: 0 0 10px black;
+    }
+}
+
+.delete{
+    position: absolute;
+    right: 2px;
+    top: 2px;
+    border: none;
+    background: none;
+    font-size: 24px;
+    color: #a4a4a4;
+    cursor: pointer;
+    transition: .3s;
+
+    &:hover{
+        color: black;
+    }
+}
+
+.infoDiv{
+    height: 130px;
+    padding: 16px 16px 0px;
+    background-color: #E5E5E5;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    cursor: auto;
+}
+
+.countDiv{
+    display: flex;
+    align-items: center;
+    padding-bottom: 12px;
+    gap: 12px;
+
+    span{
+        font-size: 20px;
+    }
+
+    button{
+        width: 28px;
+        height: 28px;
+        font-size: 20px;
+        background-color: white;
+        border: 1px solid gray;
+        cursor: pointer;
+        transition: .3s;
+
+        &:hover{
+            background-color: black;
+            color: white;
+        }
+    }
+
+    .buyBtn{
+        width: 80px;
+        font-size: 16px;
+        margin-left: 10px;
+    }
+}
