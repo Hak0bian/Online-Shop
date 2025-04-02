@@ -1,9 +1,12 @@
+import { useContext } from "react";
+import { Context } from "../../App";
 import logo from "../../assets/logo.png"
 import { NavLink } from 'react-router-dom'
 import { IoMdCart } from "react-icons/io";
 import st from "./Navigation.module.css"
 
-const Navigation = ({cart}) => {
+const Navigation = () => {
+  const cart = useContext(Context)[0]
   const cartCount = cart.reduce((acc, item) => acc + item.count, 0);
 
   return (

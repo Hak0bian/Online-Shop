@@ -1,10 +1,10 @@
 import { Outlet } from "react-router-dom"
 import { Navigation, Footer} from "../index"
 
-const Layout = ({cart}) => {
+const Layout = () => {
   return (
     <section>
-        <Navigation cart={cart}/>
+        <Navigation/>
         <Outlet/>
         <Footer/>
     </section>

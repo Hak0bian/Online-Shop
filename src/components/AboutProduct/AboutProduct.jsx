@@ -1,13 +1,13 @@
 import Button from "../Button/Button"
 import st from "./AboutProduct.module.css"
 
-const AboutProduct = ({product, addToCart}) => {
+const AboutProduct = ({product}) => {
   return (
     <section className={st.product_container}>
       <div className={st.productCard} key={product.id}>
           <div className={st.imageDiv}>
               <img src={product.thumbnail} className={st.productImg}/>
-              <Button prod={product} addToCart={addToCart}/>
+              <Button prod={product} />
           </div>
 
           <div className={st.productInfo}>

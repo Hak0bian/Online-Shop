@@ -1,11 +1,16 @@
+import { useContext } from "react";
+import { Context } from "../../App";
 import { useEffect } from "react";
 import { ProductInCart } from "../../components";
-import st from "./Cart.module.css"
+import st from "./Cart.module.css";
 
-const Cart = ({cart, setCart, setToBuy}) => {
+const Cart = () => {
+  const cart = useContext(Context)[0];
+  const setCart = useContext(Context)[2];
+  const setToBuy = useContext(Context)[3];
 
   useEffect(() => {
-    const storedCart = JSON.parse(localStorage.getItem('cart'));
+    const storedCart = JSON.parse(localStorage.getItem("cart"));
     if (storedCart) {
       setCart(storedCart);
     }
@@ -13,19 +18,19 @@ const Cart = ({cart, setCart, setToBuy}) => {
 
   useEffect(() => {
     if (cart.length > 0) {
-      localStorage.setItem('cart', JSON.stringify(cart));
+      localStorage.setItem("cart", JSON.stringify(cart));
     }
   }, [cart]);
-
 
   const plus = (id) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id ? { 
-          ...item, 
-          count: item.count + 1 
-        } 
-        : item
+        item.id === id
+          ? {
+              ...item,
+              count: item.count + 1,
+            }
+          : item
       )
     );
   };
@@ -33,51 +38,51 @@ const Cart = ({cart, setCart, setToBuy}) => {
   const minus = (id) => {
     setCart((prevCart) =>
       prevCart.map((item) =>
-        item.id === id && item.count > 1 ? { 
-          ...item, 
-          count: item.count - 1 
-        }
-        : item
+        item.id === id && item.count > 1
+          ? {
+              ...item,
+              count: item.count - 1,
+            }
+          : item
       )
     );
   };
-  
+
   const handleBuy = (item) => {
-    setToBuy([{
-      id: item.id,
-      title: item.title,
-      count: item.count,
-      price: (item.price * item.count).toFixed(2)
-    }]);
+    setToBuy([
+      {
+        id: item.id,
+        title: item.title,
+        count: item.count,
+        price: (item.price * item.count).toFixed(2),
+      },
+    ]);
   };
 
   const deleteProduct = (id) => {
-    const newCart = cart.filter(prod => id !== prod.id)
-    setCart(newCart)
-    localStorage.setItem('cart', JSON.stringify(newCart));
-  }
+    const newCart = cart.filter((prod) => id !== prod.id);
+    setCart(newCart);
+    localStorage.setItem("cart", JSON.stringify(newCart));
+  };
 
-  
   return (
     <section className={st.cartSection}>
-        {
-          cart.length === 0 ? (
-            <h2>Cart is empty</h2>
-          ) : (
-            cart.map((item) => (
-              <ProductInCart 
-                key={item.id}
-                item={item}
-                plus={plus}  
-                minus={minus}
-                handleBuy={handleBuy}
-                deleteProduct={deleteProduct}
-              />
-            ))
-          )
-        }
+      {cart.length === 0 ? (
+        <h2>Cart is empty</h2>
+      ) : (
+        cart.map((item) => (
+          <ProductInCart
+            key={item.id}
+            item={item}
+            plus={plus}
+            minus={minus}
+            handleBuy={handleBuy}
+            deleteProduct={deleteProduct}
+          />
+        ))
+      )}
     </section>
   );
 };
 
-export default Cart
+export default Cart;

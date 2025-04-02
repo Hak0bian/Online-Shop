@@ -1,8 +1,10 @@
-import { useState, useRef } from 'react'
+import { useState, useRef, createContext } from 'react'
 import { Routes, Route } from "react-router-dom"
 import { Home, Products, Product, Cart, Buy, NotFound } from "./pages/index"
 import { Layout } from "./components/index"
 import './App.css'
+
+export const Context = createContext(null)
 
 function App() {
   const [cart, setCart] = useState([]);
@@ -35,24 +37,23 @@ function App() {
       }
     });
   };
-
-  console.log("Cart", cart);
-  console.log("toBuy", toBuy);
   
 
   return (
     <section>
+      <Context.Provider value={[cart, addToCart, setCart, setToBuy, toBuy]}>
         <Routes>
-          <Route path='/' element={<Layout cart={cart}/>}>
+          <Route path='/' element={<Layout/>}>
             <Route index element={<Home/>}/>
-            <Route path='/products' element={<Products addToCart={addToCart} />} />
-            <Route path='/products/:category' element={<Products addToCart={addToCart} />} />
-            <Route path='/products/:category/:id' element={<Product addToCart={addToCart} />} />
-            <Route path='/cart' element={<Cart cart={cart} setCart={setCart} setToBuy={setToBuy}/>} />
-            <Route path='/cart/buy' element={<Buy toBuy={toBuy} />} />
+            <Route path='/products' element={<Products/>} />
+            <Route path='/products/:category' element={<Products/>} />
+            <Route path='/products/:category/:id' element={<Product/>} />
+            <Route path='/cart' element={<Cart/>} />
+            <Route path='/cart/buy' element={<Buy/>} />
             <Route path='*' element={<NotFound/>}/>
           </Route>
         </Routes>
+      </Context.Provider>
     </section>
   )
 }

@@ -3,7 +3,7 @@ import { useEffect, useState } from "react";
 import { AboutProduct } from "../../components";
 import axios from "axios";
 
-const Product = ({ addToCart }) => {
+const Product = () => {
     const {id} = useParams();
     const [product, setProduct] = useState(null);
 
@@ -15,7 +15,7 @@ const Product = ({ addToCart }) => {
 
     if (!product) return <p>Loading...</p>;
 
-    return <AboutProduct product={product} addToCart={addToCart} />
+    return <AboutProduct product={product} />
 };
 
 export default Product;

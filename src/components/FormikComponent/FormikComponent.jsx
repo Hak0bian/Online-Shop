@@ -2,13 +2,13 @@ import { Formik, Form, Field, ErrorMessage } from "formik";
 import validation from "../validation";
 import st from "./FormikComponent.module.css"
 
-const FormikComponent = ({ addUserData, prod}) => {
+const FormikComponent = ({ addUserData, buyP}) => {
   return (
     <div className={st.formDiv}>
         <div className={st.prodInfo}>
-            <h2>{prod.title}</h2>
-            <p>Count: {prod.count}</p>
-            <p>Total price: {prod.price} $</p>
+            <h2>{buyP.title}</h2>
+            <p>Count: {buyP.count}</p>
+            <p>Total price: {buyP.price} $</p>
         </div>
 
         <Formik

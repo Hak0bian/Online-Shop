@@ -1,10 +1,10 @@
 import { BuyProduct } from "../../components"
 import st from "./Buy.module.css"
 
-const Buy = ({ toBuy }) => {
+const Buy = () => {
   return (
     <section className={st.buyContainer}>
-      <BuyProduct toBuy={toBuy} />
+      <BuyProduct />
     </section>
   );
 };

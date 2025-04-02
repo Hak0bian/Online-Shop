@@ -4,7 +4,7 @@ import { ProductCard } from "../../components/";
 import axios from "axios";
 import st from "./Products.module.css";
 
-const Products = ({ addToCart }) => {
+const Products = () => {    
     const {category} = useParams();
     const [products, setProducts] = useState([]);
 
@@ -39,7 +39,7 @@ const Products = ({ addToCart }) => {
         <section className={st.prod_container}>
             {products.length > 0 ? (
                 products.map(prod => (
-                    <ProductCard key={prod.id} prod={prod} addToCart={addToCart} />
+                    <ProductCard key={prod.id} prod={prod}/>
                 ))
             ) : (
                 <p>Loading...</p>

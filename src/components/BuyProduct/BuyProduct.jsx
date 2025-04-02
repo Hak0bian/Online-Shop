@@ -1,7 +1,9 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import { Context } from "../../App";
 import { FormikComponent } from "../index"
 
-const BuyProduct = ({toBuy}) => {
+const BuyProduct = () => {
+    const toBuy = useContext(Context)[4]
     const [usersData, setUsersData] = useState([])
     
     const addUserData = (values, resetForm) => {
@@ -18,8 +20,8 @@ const BuyProduct = ({toBuy}) => {
     
     return (
         <section>
-            {toBuy.map((prod) => (
-                <FormikComponent addUserData={addUserData} prod={prod} key={prod.id}/>
+            {toBuy.map((buyP) => (
+                <FormikComponent addUserData={addUserData} buyP={buyP} key={buyP.id}/>
             ))}
         </section>
     )
