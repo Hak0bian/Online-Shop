@@ -61,7 +61,7 @@ const Cart = ({cart, setCart, setToBuy}) => {
   return (
     <section className={st.cartSection}>
         {
-          cart.length === 0 ? (
+          cart?.length === 0 ? (
             <h2>Cart is empty</h2>
           ) : (
             cart.map((item) => (

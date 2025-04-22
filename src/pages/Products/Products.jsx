@@ -1,44 +1,33 @@
 import { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
 import { ProductCard } from "../../components/";
-import axios from "axios";
 import st from "./Products.module.css";
+import { useDispatch, useSelector } from "react-redux";
+import { defaultProductsThunk, productsByCategoryThunk } from "../../store/reducers/productsReducer";
 
 const Products = ({ addToCart }) => {
     const {category} = useParams();
-    const [products, setProducts] = useState([]);
+    const dispatch = useDispatch()
+    const {defaultProducts, productsByCategory} = useSelector((state) => state.Products)    
+    const productsToShow = category ? productsByCategory : defaultProducts;
 
     useEffect(() => {
         if (!category) {
-            Promise.all([
-              axios.get("https://dummyjson.com/products/category/mens-shirts"),
-              axios.get("https://dummyjson.com/products/category/womens-dresses"),
-              axios.get("https://dummyjson.com/products/category/beauty"),
-              axios.get("https://dummyjson.com/products/category/womens-watches")
-            ])
-            .then(([shirtsRes, dressesRes, beautyRes, watchesRes]) => {
-              const allProducts = [
-                ...shirtsRes.data.products,
-                ...dressesRes.data.products,
-                ...beautyRes.data.products,
-                ...watchesRes.data.products
-              ];
-              setProducts(allProducts); 
-            })
-            .catch((err) => console.error(err));
-        } 
+            dispatch(defaultProductsThunk("mens-shirts"))
+            dispatch(defaultProductsThunk("womens-dresses"))
+            dispatch(defaultProductsThunk("beauty"))
+            dispatch(defaultProductsThunk("womens-watches"))
+        }
         else {
-            axios.get(`https://dummyjson.com/products/category/${category}`)
-                .then((res) => setProducts(res.data.products))
-                .catch((err) => console.error(err));
+            dispatch(productsByCategoryThunk(category))
         }
     }, [category]);
 
     
     return (
         <section className={st.prod_container}>
-            {products.length > 0 ? (
-                products.map(prod => (
+            {productsToShow?.length > 0 ? (
+                productsToShow?.map(prod => (
                     <ProductCard key={prod.id} prod={prod} addToCart={addToCart} />
                 ))
             ) : (

@@ -1,21 +1,21 @@
 import { useParams } from "react-router-dom";
-import { useEffect, useState } from "react";
+import { useEffect } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { productByIdThunk } from "../../store/reducers/productsReducer";
 import { AboutProduct } from "../../components";
-import axios from "axios";
 
 const Product = ({ addToCart }) => {
     const {id} = useParams();
-    const [product, setProduct] = useState(null);
+    const dispatch = useDispatch()
+    const {productById} = useSelector((state) => state.Products)
 
     useEffect(() => {
-        axios.get(`https://dummyjson.com/products/${id}`)
-            .then((res) => setProduct(res.data))
-            .catch((err) => console.error(err));
+        dispatch(productByIdThunk(id))
     }, [id]);
 
-    if (!product) return <p>Loading...</p>;
+    if (!productById) return <p>Loading...</p>;
 
-    return <AboutProduct product={product} addToCart={addToCart} />
+    return <AboutProduct product={productById} addToCart={addToCart} />
 };
 
 export default Product;

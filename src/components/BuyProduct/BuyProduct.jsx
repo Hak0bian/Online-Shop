@@ -18,7 +18,7 @@ const BuyProduct = ({toBuy}) => {
     
     return (
         <section>
-            {toBuy.map((prod) => (
+            {toBuy?.map((prod) => (
                 <FormikComponent addUserData={addUserData} prod={prod} key={prod.id}/>
             ))}
         </section>

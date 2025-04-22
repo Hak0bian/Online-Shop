@@ -47,11 +47,11 @@ const FormikComponent = ({ addUserData, prod}) => {
 
                 <div>
                     <Field as="select" name="payment" className={st.select} >
-                    <option label="Select payment method" disabled />
-                    <option value="Cash" label="Cash" />
-                    <option value="Card" label="Card" />
-                    <option value="TelCell" label="TelCell" />
-                    <option value="IDram" label="Idram" />
+                        <option label="Select payment method" disabled />
+                        <option value="Cash" label="Cash" />
+                        <option value="Card" label="Card" />
+                        <option value="TelCell" label="TelCell" />
+                        <option value="IDram" label="Idram" />
                     </Field>
                     <ErrorMessage name="payment" component="div" className={st.error} />
                 </div>

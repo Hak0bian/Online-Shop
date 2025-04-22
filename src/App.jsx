@@ -36,10 +36,6 @@ function App() {
     });
   };
 
-  console.log("Cart", cart);
-  console.log("toBuy", toBuy);
-  
-
   return (
     <section>
         <Routes>
